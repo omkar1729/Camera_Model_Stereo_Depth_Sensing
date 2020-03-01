@@ -2,39 +2,44 @@ import cv2
 import numpy as np
 from math import cos, sin, radians
 
-objp = np.zeros((6*9,3), np.float32)
-objp[:,:2] = np.mgrid[0:9,0:6].T.reshape(-1,2)
-# print(objp)
+d3=[]
+ip=[]
+d3_points = []
+for i in range(6):
+    for j in range(9):
+        d3_points.append([float(j),float(i),0.0])
+
+d3_points = np.asarray(d3_points,np.float32)
 
 object_points = []
 image_points_left = []
 image_points_right = []
 shape = ()
 
-intrinsic_matrix_left = np.loadtxt('/home/sarthake/project_2a/parameters/intrinsic.csv', delimiter=',')
-intrinsic_matrix_right = np.loadtxt('/home/sarthake/project_2a/parameters/intrinsic.csv', delimiter=',')
-distortion = np.loadtxt('/home/sarthake/project_2a/parameters/distortion.csv',delimiter=',')
+intrinsic_matrix_left = np.loadtxt('/home/omkar/PycharmProjects/Perception-Project-2/parameters/intrinsic.csv', delimiter=',')
+intrinsic_matrix_right = np.loadtxt('/home/omkar/PycharmProjects/Perception-Project-2/parameters/intrinsic.csv', delimiter=',')
+distortion = np.loadtxt('//home/omkar/PycharmProjects/Perception-Project-2/parameters/distortion.csv',delimiter=',')
 # distortion = distortion.reshape((480,640,3))
 print(distortion)
 for i in range(2):
-    left_img = cv2.imread('/home/sarthake/project_2a/images/task_2/left_'+str(i)+'.png')
+    left_img = cv2.imread('/home/omkar/PycharmProjects/Perception-Project-2/images/task_2/left_'+str(i)+'.png')
     shape = left_img.shape[:-1]
     print(shape)
-    right_img = cv2.imread('/home/sarthake/project_2a/images/task_2/right_'+str(i)+'.png')
+    right_img = cv2.imread('/home/omkar/PycharmProjects/Perception-Project-2/images/task_2/right_'+str(i)+'.png')
     # print(left_img.shape[:-1])
     ret_l, corner_left = cv2.findChessboardCorners(left_img, (9, 6))
     ret_r, corner_right = cv2.findChessboardCorners(right_img, (9, 6))
 
     image_points_left.append(corner_left)
     image_points_right.append(corner_right)
-    object_points.append(objp)
+    object_points.append(d3_points)
 
     result_left = cv2.drawChessboardCorners(left_img, (9, 6), corner_left, ret_l)
     result_right = cv2.drawChessboardCorners(right_img, (9, 6), corner_right, ret_r)
 
     cv2.imshow('img_left', result_left)
     cv2.imshow('img_right', result_right)
-    cv2.waitKey()
+    cv2.waitKey(1000)
 
 cv2.destroyAllWindows()
 # print(object_points)
