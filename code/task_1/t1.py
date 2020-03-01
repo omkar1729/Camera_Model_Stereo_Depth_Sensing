@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 
 
-
 d3=[]
 ip=[]
 d3_points = []
@@ -38,18 +37,22 @@ for i in range(11):
     cv2.destroyAllWindows()
 
 print(point_cor_l.shape, d3_points.shape, left.shape[:-1])
-ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(d3, ip, left.shape[:-1], None, None)
+ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(d3, ip, left.shape[:-1], None, None,flags=cv2.CALIB_RATIONAL_MODEL)
 
 
 h,  w = left.shape[:-1]
 
+newcameramtx, roi=cv2.getOptimalNewCameraMatrix(mtx,dist,(w,h),1, (w,h))
+
 print(mtx)
-# print(rvecs,tvecs)
+print(roi)
 np.savetxt('/home/omkar/PycharmProjects/Perception-Project-2/parameters/intrinsic.csv', mtx, delimiter = ',')
 
 left = cv2.imread(str_left.format(0))
-mapx, mapy = cv2.initUndistortRectifyMap(mtx, dist, None, None, (w,h), 5)
+mapx, mapy = cv2.initUndistortRectifyMap(mtx, dist, None, newcameramtx, (w,h), 5)
 dst = cv2.remap(left, mapx, mapy, cv2.INTER_LINEAR)
+x,y,w,h = roi
+dst = dst[y:y+h, x:x+w]
 # print(dst.shape)
 np.savetxt('/home/omkar/PycharmProjects/Perception-Project-2/parameters/distortion.csv', dist, delimiter = ',')
 # with open('/home/sarthake/project_2a/parameters/distortion.csv', 'w') as outfile:
