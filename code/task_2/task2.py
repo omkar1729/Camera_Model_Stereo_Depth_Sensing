@@ -25,12 +25,13 @@ for i in range(2):
     ret_l, corner_left = cv2.findChessboardCorners(left_img, (9, 6))
     ret_r, corner_right = cv2.findChessboardCorners(right_img, (9, 6))
 
+    result_left = cv2.drawChessboardCorners(left_img, (9, 6), corner_left, ret_l)
+    result_right = cv2.drawChessboardCorners(right_img, (9, 6), corner_right, ret_r)
+
     image_points_left.append(corner_left)
     image_points_right.append(corner_right)
     object_points.append(objp)
 
-    result_left = cv2.drawChessboardCorners(left_img, (9, 6), corner_left, ret_l)
-    result_right = cv2.drawChessboardCorners(right_img, (9, 6), corner_right, ret_r)
 
     cv2.imshow('img_left', result_left)
     cv2.imshow('img_right', result_right)
@@ -42,23 +43,15 @@ cv2.destroyAllWindows()
 
 # T = np.zeros((3, 1), dtype=np.float64)
 # R = np.eye(3, dtype=np.float64)
+print(corner_left.shape)
 print(np.shape(image_points_left))
 print(np.shape(image_points_right))
 print(np.shape(object_points))
 print(np.shape(distortion))
 print(np.shape(intrinsic_matrix_left))
-# constant_flag = 0
-#
-# constant_flag |= cv2.CALIB_FIX_INTRINSIC
-#
-# constant_flag |= cv2.CALIB_USE_INTRINSIC_GUESS
-#
-# constant_flag |= cv2.CALIB_FIX_FOCAL_LENGTH
-#
-# constant_flag |= cv2.CALIB_ZERO_TANGENT_DIST
 
 stereocalib_criteria = (cv2.TERM_CRITERIA_MAX_ITER + cv2.TERM_CRITERIA_EPS, 100, 1e-5)
-print(distortion)
+# print(distortion)
 retval, matrix1, dist1, matrix2, dist2, R, T, F, E = cv2.stereoCalibrate(object_points,
                                                                          image_points_left,image_points_right,
                                                                          intrinsic_matrix_left,distortion,
@@ -66,14 +59,22 @@ retval, matrix1, dist1, matrix2, dist2, R, T, F, E = cv2.stereoCalibrate(object_
                                                                          R=None, T=None, E=None, F=None,
                                                                          criteria=stereocalib_criteria,
                                                                          flags=cv2.CALIB_FIX_INTRINSIC)
+translate = np.zeros([3,1])
+rotate = np.identity(3)
+proj1 = np.dot(intrinsic_matrix_left,np.concatenate((rotate,translate),axis=1))
+R = np.asarray(R)
+T = np.asanyarray(T)
+proj2 = np.dot(intrinsic_matrix_right, np.concatenate((R,T),axis=1))
 
-# print(R)
-# print(T)
+# print(image_points_left)
 
-# print(np.shape(image_points_left))
 undistorted_left = cv2.undistortPoints(np.reshape(image_points_left,(108,1,2)), intrinsic_matrix_left, distortion)
 undistorted_right = cv2.undistortPoints(np.reshape(image_points_right,(108,1,2)), intrinsic_matrix_right, distortion)
-# print(np.shape(undistorted_left))
+print(np.shape(undistorted_left))
+
+triangulate = cv2.triangulatePoints(proj1,proj2,undistorted_left,undistorted_right)
+print(triangulate.shape)
+#tasks 5-7
 
 rotation1, rotation2, projection1, projection2, Q, roi1, roi2 = cv2.stereoRectify(cameraMatrix1=intrinsic_matrix_left,
                       distCoeffs1=distortion,
@@ -85,9 +86,9 @@ rotation1, rotation2, projection1, projection2, Q, roi1, roi2 = cv2.stereoRectif
                       flags=cv2.CALIB_ZERO_DISPARITY,
                       )
 
-print(projection1)
-print(projection2)
-print(rotation1)
+# print(projection1)
+# print(projection2)
+# print(rotation1)
 
 undistort_map_left_x,undistort_map_left_y = cv2.initUndistortRectifyMap(intrinsic_matrix_left, distortion, rotation1, projection1, shape, cv2.CV_32FC1)
 undistort_map_right_x,undistort_map_right_y = cv2.initUndistortRectifyMap(intrinsic_matrix_right, distortion, rotation2, projection2, shape, cv2.CV_32FC1)
