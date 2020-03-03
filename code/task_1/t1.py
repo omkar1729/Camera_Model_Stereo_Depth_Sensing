@@ -3,7 +3,8 @@ import numpy as np
 
 
 d3=[]
-ip=[]
+ip_l=[]
+ip_r=[]
 d3_points = []
 for i in range(6):
     for j in range(9):
@@ -28,7 +29,9 @@ for i in range(11):
     cv2.drawChessboardCorners(right, (9, 6), point_cor_r, ret_r)
 
     d3.append(d3_points)
-    ip.append(point_cor_l)
+    ip_l.append(point_cor_l)
+    ip_r.append(point_cor_r)
+
 
 
     cv2.imshow('window_left', left)
@@ -37,24 +40,32 @@ for i in range(11):
     cv2.destroyAllWindows()
 
 print(point_cor_l.shape, d3_points.shape, left.shape[:-1])
-ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(d3, ip, left.shape[:-1], None, None,flags=cv2.CALIB_RATIONAL_MODEL)
+retl, mtxl, distl, rvecsl, tvecsl = cv2.calibrateCamera(d3, ip_l, left.shape[:-1], None, None,flags=cv2.CALIB_RATIONAL_MODEL)
+retr, mtxr, distr, rvecsr, tvecsr = cv2.calibrateCamera(d3, ip_r, right.shape[:-1], None, None,flags=cv2.CALIB_RATIONAL_MODEL)
+
 
 
 h,  w = left.shape[:-1]
 
-newcameramtx, roi=cv2.getOptimalNewCameraMatrix(mtx,dist,(w,h),1, (w,h))
+newcameramtx_l, roi_l=cv2.getOptimalNewCameraMatrix(mtxl,distl,(w,h),1, (w,h))
+newcameramtx_r, roi_r=cv2.getOptimalNewCameraMatrix(mtxr,distr,(w,h),1, (w,h))
 
-print(mtx)
-print(roi)
-np.savetxt('/home/omkar/PycharmProjects/Perception-Project-2/parameters/intrinsic.csv', mtx, delimiter = ',')
+
+print(mtxl,mtxr)
+print(roi_l,roi_r)
+np.savetxt('/home/omkar/PycharmProjects/Perception-Project-2/parameters/intrinsic_l.csv', mtxl, delimiter = ',')
+np.savetxt('/home/omkar/PycharmProjects/Perception-Project-2/parameters/intrinsic_r.csv', mtxr, delimiter = ',')
+
 
 left = cv2.imread(str_left.format(0))
-mapx, mapy = cv2.initUndistortRectifyMap(mtx, dist, None, newcameramtx, (w,h), 5)
+mapx, mapy = cv2.initUndistortRectifyMap(mtxl, distl, None, newcameramtx_l, (w,h), 5)
 dst = cv2.remap(left, mapx, mapy, cv2.INTER_LINEAR)
-x,y,w,h = roi
+x,y,w,h = roi_l
 dst = dst[y:y+h, x:x+w]
 # print(dst.shape)
-np.savetxt('/home/omkar/PycharmProjects/Perception-Project-2/parameters/distortion.csv', dist, delimiter = ',')
+np.savetxt('/home/omkar/PycharmProjects/Perception-Project-2/parameters/distortion_l.csv', distl, delimiter = ',')
+np.savetxt('/home/omkar/PycharmProjects/Perception-Project-2/parameters/distortion_r.csv', distr, delimiter = ',')
+
 # with open('/home/sarthake/project_2a/parameters/distortion.csv', 'w') as outfile:
 #     # outfile.write('# Array shape: {0}\n'.format(dst.shape))
 #
