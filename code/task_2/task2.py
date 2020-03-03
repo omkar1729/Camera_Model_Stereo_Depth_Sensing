@@ -11,14 +11,16 @@ image_points_left = []
 image_points_right = []
 shape = ()
 
-intrinsic_matrix_left = np.loadtxt('/home/sarthake/project_2a/parameters/intrinsic.csv', delimiter=',')
-intrinsic_matrix_right = np.loadtxt('/home/sarthake/project_2a/parameters/intrinsic.csv', delimiter=',')
-distortion = np.loadtxt('/home/sarthake/project_2a/parameters/distortion.csv',delimiter=',')
+intrinsic_matrix_left = np.loadtxt('/home/sarthake/project_2a/parameters/intrinsic_l.csv', delimiter=',')
+intrinsic_matrix_right = np.loadtxt('/home/sarthake/project_2a/parameters/intrinsic_r.csv', delimiter=',')
+distortion_left = np.loadtxt('/home/sarthake/project_2a/parameters/distortion.csv',delimiter=',')
+distortion_right = np.loadtxt('/home/sarthake/project_2a/parameters/distortion.csv',delimiter=',')
 # distortion = distortion.reshape((480,640,3))
-print(distortion)
-for i in range(2):
+# print(distortion_left)
+for i in range(1):
     left_img = cv2.imread('/home/sarthake/project_2a/images/task_2/left_'+str(i)+'.png')
-    shape = left_img.shape[:-1]
+    h,w = left_img.shape[:-1]
+    shape = (w,h)
     print(shape)
     right_img = cv2.imread('/home/sarthake/project_2a/images/task_2/right_'+str(i)+'.png')
     # print(left_img.shape[:-1])
@@ -38,24 +40,20 @@ for i in range(2):
     cv2.waitKey(50)
 
 cv2.destroyAllWindows()
-# print(object_points)
-# print(image_points_left)
-
-# T = np.zeros((3, 1), dtype=np.float64)
-# R = np.eye(3, dtype=np.float64)
-print(corner_left.shape)
-print(np.shape(image_points_left))
-print(np.shape(image_points_right))
-print(np.shape(object_points))
-print(np.shape(distortion))
-print(np.shape(intrinsic_matrix_left))
+#
+# print(corner_left.shape)
+# print(np.shape(image_points_left))
+# print(np.shape(image_points_right))
+# print(np.shape(object_points))
+# print(np.shape(distortion))
+# print(np.shape(intrinsic_matrix_left))
 
 stereocalib_criteria = (cv2.TERM_CRITERIA_MAX_ITER + cv2.TERM_CRITERIA_EPS, 100, 1e-5)
 # print(distortion)
 retval, matrix1, dist1, matrix2, dist2, R, T, F, E = cv2.stereoCalibrate(object_points,
                                                                          image_points_left,image_points_right,
-                                                                         intrinsic_matrix_left,distortion,
-                                                                         intrinsic_matrix_right,distortion,shape,
+                                                                         intrinsic_matrix_left,distortion_left,
+                                                                         intrinsic_matrix_right,distortion_right,shape,
                                                                          R=None, T=None, E=None, F=None,
                                                                          criteria=stereocalib_criteria,
                                                                          flags=cv2.CALIB_FIX_INTRINSIC)
@@ -64,22 +62,24 @@ rotate = np.identity(3)
 proj1 = np.dot(intrinsic_matrix_left,np.concatenate((rotate,translate),axis=1))
 R = np.asarray(R)
 T = np.asanyarray(T)
+origin2 = np.dot(R,T)
+print(origin2)
 proj2 = np.dot(intrinsic_matrix_right, np.concatenate((R,T),axis=1))
 
 # print(image_points_left)
 
-undistorted_left = cv2.undistortPoints(np.reshape(image_points_left,(108,1,2)), intrinsic_matrix_left, distortion)
-undistorted_right = cv2.undistortPoints(np.reshape(image_points_right,(108,1,2)), intrinsic_matrix_right, distortion)
-print(np.shape(undistorted_left))
+undistorted_left = cv2.undistortPoints(np.reshape(image_points_left,(54,1,2)), intrinsic_matrix_left, distortion_left)
+undistorted_right = cv2.undistortPoints(np.reshape(image_points_right,(54,1,2)), intrinsic_matrix_right, distortion_right)
+# print(np.shape(undistorted_left))
 
 triangulate = cv2.triangulatePoints(proj1,proj2,undistorted_left,undistorted_right)
-print(triangulate.shape)
+# print(triangulate)
 #tasks 5-7
 
 rotation1, rotation2, projection1, projection2, Q, roi1, roi2 = cv2.stereoRectify(cameraMatrix1=intrinsic_matrix_left,
-                      distCoeffs1=distortion,
+                      distCoeffs1=distortion_left,
                       cameraMatrix2=intrinsic_matrix_right,
-                      distCoeffs2=distortion,
+                      distCoeffs2=distortion_right,
                       imageSize=shape,
                       R=R,
                       T=T,
@@ -90,11 +90,11 @@ rotation1, rotation2, projection1, projection2, Q, roi1, roi2 = cv2.stereoRectif
 # print(projection2)
 # print(rotation1)
 
-undistort_map_left_x,undistort_map_left_y = cv2.initUndistortRectifyMap(intrinsic_matrix_left, distortion, rotation1, projection1, shape, cv2.CV_32FC1)
-undistort_map_right_x,undistort_map_right_y = cv2.initUndistortRectifyMap(intrinsic_matrix_right, distortion, rotation2, projection2, shape, cv2.CV_32FC1)
+undistort_map_left_x,undistort_map_left_y = cv2.initUndistortRectifyMap(intrinsic_matrix_left, distortion_left, rotation1, projection1, shape, cv2.CV_32FC1)
+undistort_map_right_x,undistort_map_right_y = cv2.initUndistortRectifyMap(intrinsic_matrix_right, distortion_right, rotation2, projection2, shape, cv2.CV_32FC1)
 
 
-for i in range(2):
+for i in range(1):
     left_img = cv2.imread('/home/sarthake/project_2a/images/task_2/left_'+str(i)+'.png')
     right_img = cv2.imread('/home/sarthake/project_2a/images/task_2/right_'+str(i)+'.png')
 
@@ -110,5 +110,8 @@ np.savetxt('/home/sarthake/project_2a/parameters/R.csv', R, delimiter = ',')
 np.savetxt('/home/sarthake/project_2a/parameters/T.csv', T, delimiter = ',')
 np.savetxt('/home/sarthake/project_2a/parameters/F.csv', F, delimiter = ',')
 np.savetxt('/home/sarthake/project_2a/parameters/E.csv', E, delimiter = ',')
-np.savetxt('/home/sarthake/project_2a/parameters/Projection1.csv', projection1, delimiter = ',')
-np.savetxt('/home/sarthake/project_2a/parameters/Projection2.csv', projection2, delimiter = ',')
+np.savetxt('/home/sarthake/project_2a/parameters/P1.csv', projection1, delimiter = ',')
+np.savetxt('/home/sarthake/project_2a/parameters/P2.csv', projection2, delimiter = ',')
+np.savetxt('/home/sarthake/project_2a/parameters/R1.csv', rotation1, delimiter = ',')
+np.savetxt('/home/sarthake/project_2a/parameters/R2.csv', rotation2, delimiter = ',')
+np.savetxt('/home/sarthake/project_2a/parameters/Q.csv', Q, delimiter = ',')
