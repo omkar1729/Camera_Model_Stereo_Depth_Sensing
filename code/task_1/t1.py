@@ -25,8 +25,8 @@ for i in range(11):
     ret_r, point_cor_r = cv2.findChessboardCorners(right, (9, 6))
 
     # print(point_cor[:,:,0])
-    cv2.drawChessboardCorners(left, (9, 6), point_cor_l, ret_l)
-    cv2.drawChessboardCorners(right, (9, 6), point_cor_r, ret_r)
+    # cv2.drawChessboardCorners(left, (9, 6), point_cor_l, ret_l)
+    # cv2.drawChessboardCorners(right, (9, 6), point_cor_r, ret_r)
 
     d3.append(d3_points)
     ip_l.append(point_cor_l)
