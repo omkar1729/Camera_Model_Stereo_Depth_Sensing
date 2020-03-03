@@ -12,7 +12,7 @@ for i in range(6):
 d3_points = np.asarray(d3_points,np.float32)
 
 #print(d3_points)
-str_left = '../../images/task_1/left_{}.png'
+str_left = '../../images/task_1/left_{}.png'                #change for images in task_3_and_4
 str_right = '../../images/task_1/right_{}.png'
 df = (str_left.format(1))
 
