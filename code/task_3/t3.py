@@ -3,58 +3,44 @@ import numpy as np
 # from math import multiply
 #from matplotlib import pyplot as plt
 
-d3=[]
-ip=[]
 
-d3_points = []
-for i in range(6):
-    for j in range(9):
-        d3_points.append([float(j),float(i),0.0])
-
-d3_points = np.asarray(d3_points,np.float32)
 
 #print(d3_points)
 str_left = '../../images/task_3_and_4/left_{}.png'
 str_right = '../../images/task_3_and_4/right_{}.png'
 df = (str_left.format(1))
 
-for i in range(10,11):
-    left = cv.imread(str_left.format(i), cv.IMREAD_GRAYSCALE)
-    right = cv.imread(str_right.format(i), cv.IMREAD_GRAYSCALE)
+i=0
+left = cv.imread(str_left.format(i), cv.IMREAD_GRAYSCALE)
+right = cv.imread(str_right.format(i), cv.IMREAD_GRAYSCALE)
 
-    # ret_l, point_cor_l = cv.findChessboardCorners(left, (9, 6))
-    # ret_r, point_cor_r = cv.findChessboardCorners(right, (9, 6))
-    #
-    # # print(point_cor[:,:,0])
-    # cv.drawChessboardCorners(left, (9, 6), point_cor_l, ret_l)
-    # cv.drawChessboardCorners(right, (9, 6), point_cor_r, ret_r)
 
-    # d3.append(d3_points)
-    # ip.append(point_cor_l)
 
-    cv.imshow('window_left', left)
-    cv.imshow('window_right', right)
-    cv.waitKey(1000)
-    cv.destroyAllWindows()
+cv.imshow('window_left', left)
+cv.imshow('window_right', right)
+cv.waitKey(1000)
+cv.destroyAllWindows()
 
 #left only
 #print(point_cor_l.shape, d3_points.shape, left.shape)
 #ret, mtx, dist, rvecs, tvecs = cv.calibrateCamera(d3, ip, left.shape, None, None,flags=cv.CALIB_RATIONAL_MODEL)
 
-mtx = np.loadtxt('../../parameters/intrinsic.csv', delimiter=',')
-dist = np.loadtxt('../../parameters/distortion.csv', delimiter=',')
+mtx_l = np.loadtxt('../../parameters/intrinsic_l.csv', delimiter=',')
+dist_l = np.loadtxt('../../parameters/distortion_l.csv', delimiter=',')
+mtx_r = np.loadtxt('../../parameters/intrinsic_r.csv', delimiter=',')
+dist_r = np.loadtxt('../../parameters/distortion_r.csv', delimiter=',')
 h,  w = left.shape
-newcameramtx, roi=cv.getOptimalNewCameraMatrix(mtx,dist,(w,h),1, (w,h))
+newcameramtx_l, roi_l=cv.getOptimalNewCameraMatrix(mtx_l,dist_l,(w,h),1, (w,h))
 
-print(mtx)
-print(roi)
+print(mtx_l)
+print(roi_l)
 #np.savetxt('../../parameters/intrinsic.csv', mtx, delimiter = ',')
 
 #left = cv.imread(str_left.format(0))
-mapx, mapy = cv.initUndistortRectifyMap(mtx, dist, None, newcameramtx, (w,h), 5)
-dst1 = cv.remap(left, mapx, mapy, cv.INTER_LINEAR)
-x,y,w,h = roi
-dst1 = dst1[y:y+h, x:x+w]
+mapx_l, mapy_l = cv.initUndistortRectifyMap(mtx_l, dist_l, None, None, (w,h), 5)
+dst1 = cv.remap(left, mapx_l, mapy_l, cv.INTER_LINEAR)
+# x,y,w,h = roi_l
+# dst1 = dst1[y:y+h, x:x+w]
 # print(dst.shape)
 #np.savetxt('../../parameters/intrinsic.csv', dist, delimiter = ',')
 
@@ -63,17 +49,17 @@ dst1 = dst1[y:y+h, x:x+w]
 # print(point_cor_l.shape, d3_points.shape, right.shape)
 # ret, mtx, dist, rvecs, tvecs = cv.calibrateCamera(d3, ip, right.shape, None, None,flags=cv.CALIB_RATIONAL_MODEL)
 h,  w = right.shape
-newcameramtx, roi=cv.getOptimalNewCameraMatrix(mtx,dist,(w,h),1, (w,h))
+newcameramtx_r, roi_r=cv.getOptimalNewCameraMatrix(mtx_r,dist_r,(w,h),1, (w,h))
 
 # print(mtx)
 # print(roi)
 # np.savetxt('../../parameters/intrinsic.csv', mtx, delimiter = ',')
 
 #right = cv.imread(str_right.format(0))
-mapx, mapy = cv.initUndistortRectifyMap(mtx, dist, None, newcameramtx, (w,h), 5)
-dst2 = cv.remap(right, mapx, mapy, cv.INTER_LINEAR)
-x,y,w,h = roi
-dst2 = dst2[y:y+h, x:x+w]
+mapx_r, mapy_r = cv.initUndistortRectifyMap(mtx_r, dist_r, None, None, (w,h), 5)
+dst2 = cv.remap(right, mapx_r, mapy_r, cv.INTER_LINEAR)
+# x,y,w,h = roi_r
+# dst2 = dst2[y:y+h, x:x+w]
 # print(dst.shape)
 # np.savetxt('../../parameters/intrinsic.csv', dist, delimiter = ',')
 
@@ -97,7 +83,7 @@ des1 = np.array(des1)
 des2 = np.array(des2)
 print('DES1 ',len(des1),'*',len(des1[0]))
 print('DES1 ',len(des2),'*',len(des2[0]))
-print('MATX ',len(mtx),'*',len(mtx[0]))
+#print('MATX ',len(mtx),'*',len(mtx[0]))
 # ans = np.dot(des1.transpose, mtx, des2)
 # print(ans)
 #print(kp1,kp2)

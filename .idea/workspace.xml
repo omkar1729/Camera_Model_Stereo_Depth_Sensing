@@ -2,8 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dabf5f82-c261-4143-a2e1-a7ad3f699bf1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/code/task_1/plot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parameters/P1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parameters/P2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parameters/Q.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parameters/R1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parameters/R2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parameters/T. csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parameters/distortion_l.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parameters/distortion_r.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/task_1/t1.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/task_1/t1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/task_2/task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/task_2/task2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/task_3/t3.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/task_3/t3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/E.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/E.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/F.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/F.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/R.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/R.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/T.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/T.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/intrinsic.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/intrinsic.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/intrinsic_l.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/intrinsic_l.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/intrinsic_r.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/intrinsic_r.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,24 +45,50 @@
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1YRhdA1JliFuhP7LzuKy1MH6OET" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/parameters" />
       <recent name="$PROJECT_DIR$/code/task_3" />
       <recent name="$PROJECT_DIR$/code/task_1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.t1">
+  <component name="RunManager" selected="Python.t3">
+    <configuration name="plot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="project_2a" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/code/task_1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/code/task_1/plot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="t1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="project_2a" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,9 +196,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.t1" />
         <item itemvalue="Python.t3" />
         <item itemvalue="Python.task2" />
+        <item itemvalue="Python.t1" />
+        <item itemvalue="Python.plot" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -212,47 +257,71 @@
       <option name="project" value="LOCAL" />
       <updated>1583194551378</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Updated task 1">
+      <created>1583195014725</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1583195014725</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Updated task 1 and task 2" />
     <MESSAGE value="Updated task 3" />
     <MESSAGE value="Updated task 1" />
     <option name="LAST_COMMIT_MESSAGE" value="Updated task 1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="597" y="96" width="782" height="912" key="CommitChangelistDialog2" timestamp="1583194551275">
+    <state x="597" y="96" width="782" height="912" key="CommitChangelistDialog2" timestamp="1583195014652">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="597" y="96" width="782" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1583194551275" />
-    <state width="1830" height="278" key="GridCell.Tab.0.bottom" timestamp="1583194841367">
+    <state x="597" y="96" width="782" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1583195014652" />
+    <state x="167" y="125" width="1653" height="855" key="DiffContextDialog" timestamp="1583196238811">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1583194841367" />
-    <state width="1830" height="278" key="GridCell.Tab.0.center" timestamp="1583194841367">
+    <state x="167" y="125" width="1653" height="855" key="DiffContextDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583196238811" />
+    <state width="1830" height="278" key="GridCell.Tab.0.bottom" timestamp="1583294062121">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1583194841367" />
-    <state width="1830" height="278" key="GridCell.Tab.0.left" timestamp="1583194841367">
+    <state width="1830" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1583294062121" />
+    <state width="1830" height="278" key="GridCell.Tab.0.center" timestamp="1583294062120">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1583194841367" />
-    <state width="1830" height="278" key="GridCell.Tab.0.right" timestamp="1583194841367">
+    <state width="1830" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1583294062120" />
+    <state width="1830" height="278" key="GridCell.Tab.0.left" timestamp="1583294062120">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1583194841367" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1583194554829">
+    <state width="1830" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1583294062120" />
+    <state width="1830" height="278" key="GridCell.Tab.0.right" timestamp="1583294062121">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1583194554829" />
-    <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1583194928679">
+    <state width="1830" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1583294062121" />
+    <state x="698" y="270" width="580" height="564" key="MultipleFileMergeDialog" timestamp="1583292269375">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583194928679" />
-    <state x="761" y="472" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583195005727">
+    <state x="698" y="270" width="580" height="564" key="MultipleFileMergeDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583292269375" />
+    <state x="731" y="226" width="514" height="652" key="RollbackChangesDialog" timestamp="1583196029399">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="761" y="472" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1583195005727" />
+    <state x="731" y="226" width="514" height="652" key="RollbackChangesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583196029399" />
+    <state x="482" y="187" key="SettingsEditor" timestamp="1583195055511">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1583195055511" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1583195017095">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1583195017095" />
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1583287812848">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583287812848" />
+    <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583292262838">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1583292262838" />
   </component>
 </project>
