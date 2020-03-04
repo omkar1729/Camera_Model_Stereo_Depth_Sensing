@@ -1,11 +1,6 @@
 import cv2 as cv
 import numpy as np
-# from math import multiply
-#from matplotlib import pyplot as plt
 
-
-
-#print(d3_points)
 str_left = '../../images/task_3_and_4/left_{}.png'
 str_right = '../../images/task_3_and_4/right_{}.png'
 df = (str_left.format(1))
@@ -22,8 +17,6 @@ cv.waitKey(1000)
 cv.destroyAllWindows()
 
 #left only
-#print(point_cor_l.shape, d3_points.shape, left.shape)
-#ret, mtx, dist, rvecs, tvecs = cv.calibrateCamera(d3, ip, left.shape, None, None,flags=cv.CALIB_RATIONAL_MODEL)
 
 mtx_l = np.loadtxt('../../parameters/intrinsic_l.csv', delimiter=',')
 dist_l = np.loadtxt('../../parameters/distortion_l.csv', delimiter=',')
@@ -34,26 +27,18 @@ newcameramtx_l, roi_l=cv.getOptimalNewCameraMatrix(mtx_l,dist_l,(w,h),1, (w,h))
 
 print(mtx_l)
 print(roi_l)
-#np.savetxt('../../parameters/intrinsic.csv', mtx, delimiter = ',')
 
-#left = cv.imread(str_left.format(0))
 mapx_l, mapy_l = cv.initUndistortRectifyMap(mtx_l, dist_l, None, None, (w,h), 5)
 dst1 = cv.remap(left, mapx_l, mapy_l, cv.INTER_LINEAR)
 # x,y,w,h = roi_l
 # dst1 = dst1[y:y+h, x:x+w]
 # print(dst.shape)
-#np.savetxt('../../parameters/intrinsic.csv', dist, delimiter = ',')
 
 
 #right only
-# print(point_cor_l.shape, d3_points.shape, right.shape)
-# ret, mtx, dist, rvecs, tvecs = cv.calibrateCamera(d3, ip, right.shape, None, None,flags=cv.CALIB_RATIONAL_MODEL)
+
 h,  w = right.shape
 newcameramtx_r, roi_r=cv.getOptimalNewCameraMatrix(mtx_r,dist_r,(w,h),1, (w,h))
-
-# print(mtx)
-# print(roi)
-# np.savetxt('../../parameters/intrinsic.csv', mtx, delimiter = ',')
 
 #right = cv.imread(str_right.format(0))
 mapx_r, mapy_r = cv.initUndistortRectifyMap(mtx_r, dist_r, None, None, (w,h), 5)
@@ -61,15 +46,14 @@ dst2 = cv.remap(right, mapx_r, mapy_r, cv.INTER_LINEAR)
 # x,y,w,h = roi_r
 # dst2 = dst2[y:y+h, x:x+w]
 # print(dst.shape)
-# np.savetxt('../../parameters/intrinsic.csv', dist, delimiter = ',')
 
 #create orb class object for Left
 orb1 = cv.ORB_create()
 kp1 = orb1.detect(dst1,None)
 kp1, des1 = orb1.compute(dst1, kp1)
 img1 = cv.drawKeypoints(dst1, kp1, None, color=(0,255,0), flags=0)
-cv.imshow('Feature Left', img1)#, plt.show()
-cv.imwrite('../../output/task_3/Feature Left '+ str(i) + '.png', img1)#, plt.show()
+cv.imshow('Feature Left', img1)
+cv.imwrite('../../output/task_3/Feature Left '+ str(i) + '.png', img1)
 cv.waitKey(1000)
 
 #create orb class object for Right
@@ -77,18 +61,12 @@ orb2 = cv.ORB_create()
 kp2 = orb2.detect(dst2,None)
 kp2, des2 = orb2.compute(dst2, kp2)
 img2 = cv.drawKeypoints(dst2, kp2, None, color=(0,255,0), flags=0)
-cv.imshow('Feature Right', img2)#, plt.show()
-cv.imwrite('../../output/task_3/Feature Right '+ str(i) + '.png', img2)#, plt.show()
+cv.imshow('Feature Right', img2)
+cv.imwrite('../../output/task_3/Feature Right '+ str(i) + '.png', img2)
 cv.waitKey(1000)
 
 des1 = np.array(des1)
 des2 = np.array(des2)
-#print('DES1 ',len(des1),'*',len(des1[0]))
-#print('DES1 ',len(des2),'*',len(des2[0]))
-#print('MATX ',len(mtx),'*',len(mtx[0]))
-# ans = np.dot(des1.transpose, mtx, des2)
-# print(ans)
-#print(kp1,kp2)
 
 # creating BFMatcher object
 bf = cv.BFMatcher(cv.NORM_HAMMING, crossCheck=True)
@@ -148,9 +126,6 @@ for mat in matches:
     list_kp1.append([(x1, y1)])
     list_kp2.append([(x2, y2)])
 
-#undistorted_left = cv.undistortPoints(np.reshape(image_points_left,(108,1,2)), intrinsic_matrix_left, distortion)
-#undistorted_right = cv.undistortPoints(np.reshape(image_points_right,(108,1,2)), intrinsic_matrix_right, distortion)
-#print(np.shape(undistorted_left))
 
 #print(list_kp1)
 list_kp1 = np.asarray(list_kp1)
