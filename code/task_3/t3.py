@@ -5,6 +5,7 @@ import numpy as np
 
 d3=[]
 ip=[]
+
 d3_points = []
 for i in range(6):
     for j in range(9):
@@ -40,14 +41,14 @@ for i in range(4,5):
 #print(point_cor_l.shape, d3_points.shape, left.shape)
 #ret, mtx, dist, rvecs, tvecs = cv.calibrateCamera(d3, ip, left.shape, None, None,flags=cv.CALIB_RATIONAL_MODEL)
 
-mtx = np.loadtxt('../../parameters/matrix.csv', delimiter=',')
+mtx = np.loadtxt('../../parameters/intrinsic.csv', delimiter=',')
 dist = np.loadtxt('../../parameters/distortion.csv', delimiter=',')
 h,  w = left.shape
 newcameramtx, roi=cv.getOptimalNewCameraMatrix(mtx,dist,(w,h),1, (w,h))
 
 print(mtx)
 print(roi)
-np.savetxt('../../parameters/intrinsic.csv', mtx, delimiter = ',')
+#np.savetxt('../../parameters/intrinsic.csv', mtx, delimiter = ',')
 
 #left = cv.imread(str_left.format(0))
 mapx, mapy = cv.initUndistortRectifyMap(mtx, dist, None, newcameramtx, (w,h), 5)
@@ -55,7 +56,7 @@ dst1 = cv.remap(left, mapx, mapy, cv.INTER_LINEAR)
 x,y,w,h = roi
 dst1 = dst1[y:y+h, x:x+w]
 # print(dst.shape)
-np.savetxt('../../parameters/intrinsic.csv', dist, delimiter = ',')
+#np.savetxt('../../parameters/intrinsic.csv', dist, delimiter = ',')
 
 
 #right only
@@ -64,9 +65,9 @@ np.savetxt('../../parameters/intrinsic.csv', dist, delimiter = ',')
 h,  w = right.shape
 newcameramtx, roi=cv.getOptimalNewCameraMatrix(mtx,dist,(w,h),1, (w,h))
 
-print(mtx)
-print(roi)
-np.savetxt('../../parameters/intrinsic.csv', mtx, delimiter = ',')
+# print(mtx)
+# print(roi)
+# np.savetxt('../../parameters/intrinsic.csv', mtx, delimiter = ',')
 
 #right = cv.imread(str_right.format(0))
 mapx, mapy = cv.initUndistortRectifyMap(mtx, dist, None, newcameramtx, (w,h), 5)
@@ -74,7 +75,7 @@ dst2 = cv.remap(right, mapx, mapy, cv.INTER_LINEAR)
 x,y,w,h = roi
 dst2 = dst2[y:y+h, x:x+w]
 # print(dst.shape)
-np.savetxt('../../parameters/intrinsic.csv', dist, delimiter = ',')
+# np.savetxt('../../parameters/intrinsic.csv', dist, delimiter = ',')
 
 #create orb class object for Left
 orb1 = cv.ORB_create()
@@ -95,10 +96,11 @@ cv.waitKey(1000)
 des1 = np.array(des1)
 des2 = np.array(des2)
 print('DES1 ',len(des1),'*',len(des1[0]))
-print('DES2 ',len(des2),'*',len(des2[0]))
+print('DES1 ',len(des2),'*',len(des2[0]))
 print('MATX ',len(mtx),'*',len(mtx[0]))
 # ans = np.dot(des1.transpose, mtx, des2)
 # print(ans)
+print(kp1,kp2)
 
 # creating BFMatcher object
 bf = cv.BFMatcher(cv.NORM_HAMMING, crossCheck=True)
@@ -113,6 +115,38 @@ matches = sorted(matches, key = lambda x:x.distance)
 img3 = cv.drawMatches(img1,kp1,img2,kp2,matches[:15],None,flags=2)
 
 cv.imshow('Feature Matching',img3)#,plt.show()
-cv.waitKey(0)
+cv.waitKey(1000)
+#print(len(matches),len[0](matches))
+matches = np.asarray(matches)
+print(matches.shape)
+
+intrinsic_matrix_left = np.loadtxt('../../parameters/intrinsic.csv', delimiter=',')
+intrinsic_matrix_right = np.loadtxt('../../parameters/intrinsic.csv', delimiter=',')
+
+# print(distortion)
+
+R = np.loadtxt('../../parameters/R.csv', delimiter = ',')
+T = np.loadtxt('../../parameters/T.csv', delimiter = ',')
+F = np.loadtxt('../../parameters/F.csv', delimiter = ',')
+E = np.loadtxt('../../parameters/E.csv', delimiter = ',')
+
+translate = np.zeros([3,1])
+rotate = np.identity(3)
+proj1 = np.dot(intrinsic_matrix_left,np.concatenate((rotate,translate),axis=1))
+R = np.asarray(R)
+T = np.asarray(T)
+T=np.reshape(T,(3,1))
+print(R.shape,T.shape)
+proj2 = np.dot(intrinsic_matrix_right, np.concatenate((R,T),axis=1))
+
+#undistorted_left = cv.undistortPoints(np.reshape(image_points_left,(108,1,2)), intrinsic_matrix_left, distortion)
+#undistorted_right = cv.undistortPoints(np.reshape(image_points_right,(108,1,2)), intrinsic_matrix_right, distortion)
+#print(np.shape(undistorted_left))
+
+triangulate = cv.triangulatePoints(proj1,proj2,matches,matches)
+#print(triangulate.shape)
+
+triangulate = np.array(triangulate)
+print(trinagulate)
 
 cv.destroyAllWindows()
