@@ -52,10 +52,17 @@ dst2 = cv.remap(right, mapx_r, mapy_r, cv.INTER_LINEAR)
 stereo = cv.StereoBM_create(numDisparities=16, blockSize=21)
 disparity = stereo.compute(dst1,dst2)
 depth = cv.reprojectImageTo3D(disparity,Q)
-print(depth[0,0])
+
+
+print(depth[:][:][0])
 print(disparity.shape)
 plt.imshow(depth,'gray')
-#plt.imshow(disparity,'gray')
+
+cv.imshow('depth', depth)
+#cv.imshow('disparity', disparity)
+cv.waitKey(0)
+cv.destroyAllWindows()
+plt.imshow(disparity,'gray')
 plt.show()
 
 
@@ -63,5 +70,5 @@ plt.show()
 # from mpl_toolkits.mplot3d import Axes3D
 # fig = plt.figure()
 # ax=plt.axes(projection='3d')
-# ax.scatter()
+# ax.scatter(depth[:][:][0],depth[:][:][1],depth[:][:][2])
 # plt.show()

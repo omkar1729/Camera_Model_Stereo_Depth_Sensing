@@ -87,8 +87,8 @@ cv.waitKey(1000)
 matches = np.asarray(matches)
 print(matches.shape)
 
-intrinsic_matrix_left = np.loadtxt('../../parameters/intrinsic.csv', delimiter=',')
-intrinsic_matrix_right = np.loadtxt('../../parameters/intrinsic.csv', delimiter=',')
+intrinsic_matrix_left = np.loadtxt('../../parameters/intrinsic_l.csv', delimiter=',')
+intrinsic_matrix_right = np.loadtxt('../../parameters/intrinsic_r.csv', delimiter=',')
 
 # print(distortion)
 

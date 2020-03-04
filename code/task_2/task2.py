@@ -112,7 +112,7 @@ for i in range(1):
 
 
 np.savetxt('../../parameters/R.csv', R, delimiter = ',')
-np.savetxt('../../parameters/T. csv', T, delimiter = ',')
+np.savetxt('../../parameters/T.csv', T, delimiter = ',')
 np.savetxt('../../parameters/F.csv', F, delimiter = ',')
 np.savetxt('../../parameters/E.csv', E, delimiter= ',')
 np.savetxt('../../parameters/P1.csv', projection1, delimiter = ',')
