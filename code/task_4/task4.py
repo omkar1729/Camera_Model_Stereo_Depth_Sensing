@@ -56,7 +56,7 @@ depth = cv.reprojectImageTo3D(disparity,Q)
 
 print(depth[:][:][0])
 print(disparity.shape)
-plt.imshow(depth,'gray')
+plt.imshow(disparity)
 
 cv.imshow('depth', depth)
 #cv.imshow('disparity', disparity)

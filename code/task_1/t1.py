@@ -62,14 +62,7 @@ np.savetxt('../../parameters/intrinsic_r.csv', mtx_right, delimiter=',')
 np.savetxt('../../parameters/distortion_l.csv', dist_left, delimiter=',')
 np.savetxt('../../parameters/distortion_r.csv', dist_right, delimiter=',')
 
-# with open('/home/sarthake/project_2a/parameters/distortion.csv', 'w') as outfile:
-#     # outfile.write('# Array shape: {0}\n'.format(dst.shape))
-#
-#     for slice_2d in dst:
-#         # print(slice_2d)
-#         np.savetxt(outfile, slice_2d,fmt='%-7.2f')
-#         outfile.write('# New slice\n')
-# print(dst)
+
 h, w = left.shape[:2]
 
 newcameramtx_l, roi_l =cv2.getOptimalNewCameraMatrix(mtx_left,dist_left,(w,h),1, (w,h))

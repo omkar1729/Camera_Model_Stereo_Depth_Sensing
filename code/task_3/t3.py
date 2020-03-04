@@ -16,18 +16,19 @@ cv.imshow('window_right', right)
 cv.waitKey(1000)
 cv.destroyAllWindows()
 
-#left only
-
 mtx_l = np.loadtxt('../../parameters/intrinsic_l.csv', delimiter=',')
 dist_l = np.loadtxt('../../parameters/distortion_l.csv', delimiter=',')
 mtx_r = np.loadtxt('../../parameters/intrinsic_r.csv', delimiter=',')
 dist_r = np.loadtxt('../../parameters/distortion_r.csv', delimiter=',')
 h,  w = left.shape
+
+
 newcameramtx_l, roi_l=cv.getOptimalNewCameraMatrix(mtx_l,dist_l,(w,h),1, (w,h))
 
 print(mtx_l)
 print(roi_l)
 
+#left only
 mapx_l, mapy_l = cv.initUndistortRectifyMap(mtx_l, dist_l, None, None, (w,h), 5)
 dst1 = cv.remap(left, mapx_l, mapy_l, cv.INTER_LINEAR)
 # x,y,w,h = roi_l
