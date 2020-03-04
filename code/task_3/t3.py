@@ -18,7 +18,7 @@ str_left = '../../images/task_3_and_4/left_{}.png'
 str_right = '../../images/task_3_and_4/right_{}.png'
 df = (str_left.format(1))
 
-for i in range(4,5):
+for i in range(10,11):
     left = cv.imread(str_left.format(i), cv.IMREAD_GRAYSCALE)
     right = cv.imread(str_right.format(i), cv.IMREAD_GRAYSCALE)
 
@@ -100,7 +100,7 @@ print('DES1 ',len(des2),'*',len(des2[0]))
 print('MATX ',len(mtx),'*',len(mtx[0]))
 # ans = np.dot(des1.transpose, mtx, des2)
 # print(ans)
-print(kp1,kp2)
+#print(kp1,kp2)
 
 # creating BFMatcher object
 bf = cv.BFMatcher(cv.NORM_HAMMING, crossCheck=True)
@@ -139,14 +139,46 @@ T=np.reshape(T,(3,1))
 print(R.shape,T.shape)
 proj2 = np.dot(intrinsic_matrix_right, np.concatenate((R,T),axis=1))
 
+list_kp1 = []
+list_kp2 = []
+
+# For each match...
+for mat in matches:
+
+    # Get the matching keypoints for each of the images
+    img1_idx = mat.queryIdx
+    img2_idx = mat.trainIdx
+
+    # x - columns
+    # y - rows
+    # Get the coordinates
+    (x1, y1) = kp1[img1_idx].pt
+    (x2, y2) = kp2[img2_idx].pt
+
+    # Append to each list
+    list_kp1.append([(x1, y1)])
+    list_kp2.append([(x2, y2)])
+
 #undistorted_left = cv.undistortPoints(np.reshape(image_points_left,(108,1,2)), intrinsic_matrix_left, distortion)
 #undistorted_right = cv.undistortPoints(np.reshape(image_points_right,(108,1,2)), intrinsic_matrix_right, distortion)
 #print(np.shape(undistorted_left))
 
-triangulate = cv.triangulatePoints(proj1,proj2,matches,matches)
+#print(list_kp1)
+list_kp1 = np.asarray(list_kp1)
+list_kp2 = np.asarray(list_kp2)
+print(list_kp1)
+
+triangulate = cv.triangulatePoints(proj1,proj2,list_kp1,list_kp2)
 #print(triangulate.shape)
 
 triangulate = np.array(triangulate)
-print(trinagulate)
+print(triangulate)
 
 cv.destroyAllWindows()
+
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+fig = plt.figure()
+ax=plt.axes(projection='3d')
+ax.scatter(triangulate[0]/triangulate[3],triangulate[1]/triangulate[3],triangulate[2]/triangulate[3])
+plt.show()
