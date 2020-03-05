@@ -18,17 +18,17 @@ cv.destroyAllWindows()
 
 #left only
 
-mtx_l = np.loadtxt('../../parameters/left_camera_intrinsics/intrinsic_l.csv', delimiter=',')
-dist_l = np.loadtxt('../../parameters/left_camera_intrinsics/distortion_l.csv', delimiter=',')
-mtx_r = np.loadtxt('../../parameters/right_camera_intrinsics/intrinsic_r.csv', delimiter=',')
-dist_r = np.loadtxt('../../parameters/right_camera_intrinsics/distortion_r.csv', delimiter=',')
-Q = np.loadtxt('../../parameters/stereo_rectification/Q.csv', delimiter=',')
+mtx_l = np.loadtxt('../../parameters/intrinsic_l.csv', delimiter=',')
+dist_l = np.loadtxt('../../parameters/distortion_l.csv', delimiter=',')
+mtx_r = np.loadtxt('../../parameters/intrinsic_r.csv', delimiter=',')
+dist_r = np.loadtxt('../../parameters/distortion_r.csv', delimiter=',')
+Q = np.loadtxt('../../parameters/Q.csv', delimiter=',')
 
 h,  w = left.shape
 newcameramtx_l, roi_l=cv.getOptimalNewCameraMatrix(mtx_l,dist_l,(w,h),1, (w,h))
 
-print(mtx_l)
-print(roi_l)
+# print(mtx_l)
+# print(roi_l)
 
 mapx_l, mapy_l = cv.initUndistortRectifyMap(mtx_l, dist_l, None, None, (w,h), 5)
 dst1 = cv.remap(left, mapx_l, mapy_l, cv.INTER_LINEAR)
@@ -54,8 +54,8 @@ disparity = stereo.compute(dst1,dst2)
 depth = cv.reprojectImageTo3D(disparity, Q)
 
 
-print(depth[0,0])
-print(disparity.shape)
+# print(depth[0,0])
+# print(disparity.shape)
 plt.imshow(disparity)
 
 vect = np.zeros((480,640))
@@ -76,13 +76,15 @@ for i in range(480):
             vect[i,j] = 255
         #vect[i,j] = ((255.0- vect[i,j])/(vect.max()))
 vect = ((255.0- vect)/(255))
-print(vect.max())
-print(vect)
+# print(vect.max())
+# print(vect)
 cv.imshow('depth', vect)
+cv.imwrite('../../output/task_4/Depth.png', vect)
 #cv.imshow('disparity', disparity)
 cv.waitKey(0)
 cv.destroyAllWindows()
 plt.imshow(disparity,'gray')
+plt.savefig('../../output/task_4/Disparity.png')
 plt.show()
 
 
@@ -93,4 +95,3 @@ plt.show()
 # ax=plt.axes(projection='3d')
 # ax.scatter(depth[:][:][0],depth[:][:][1],depth[:][:][2])
 # plt.show()
-
