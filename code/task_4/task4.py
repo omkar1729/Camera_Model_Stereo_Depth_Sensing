@@ -59,23 +59,25 @@ print(disparity.shape)
 plt.imshow(disparity)
 
 vect = np.zeros((480,640))
+#vect = np.linalg.norm(depth)
 for i in range(480):
     for j in range(640):
 
         vect[i,j] = np.linalg.norm(depth[i,j])
 
 
-vect[np.isinf(vect)]=255
+#vect[np.isinf(vect)]=255
+
+#vect = ((255.0- vect)/(vect.max()))*255
+
+for i in range(480):
+    for j in range(640):
+        if np.isinf(vect[i,j]):
+            vect[i,j] = 255
+        #vect[i,j] = ((255.0- vect[i,j])/(vect.max()))
+vect = ((255.0- vect)/(255))
 print(vect.max())
 print(vect)
-vect = ((255.0- vect)/(vect.max()))*255
-#vect = vect/(float(vect.max())/255.0)
-# for i in range(480):
-#     for j in range(640):
-#         if vect[i,j]=='inf':
-#             vect[i,j] = 500000
-#         vect[i,j] = ((255.0- vect[i,j])/(vect.max()))
-
 cv.imshow('depth', vect)
 #cv.imshow('disparity', disparity)
 cv.waitKey(0)
