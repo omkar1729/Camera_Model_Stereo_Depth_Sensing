@@ -2,10 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dabf5f82-c261-4143-a2e1-a7ad3f699bf1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/parameters/stereo_rectification/P2.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/task_1/t1.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/task_1/t1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/task_2/task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/task_2/task2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/task_3/t3.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/task_3/t3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/task_4/task4.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/task_4/task4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/E.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/stereo_calibration/E.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/F.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/stereo_calibration/F.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/P1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/stereo_rectification/P1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/P2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/Q.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/stereo_rectification/Q.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/R.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/stereo_calibration/R.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/R1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/stereo_rectification/R1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/R2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/stereo_rectification/R2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/T.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/stereo_calibration/T.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/distortion_l.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/left_camera_intrinsics/distortion_l.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/distortion_r.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/right_camera_intrinsics/distortion_r.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/intrinsic_l.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/left_camera_intrinsics/intrinsic_l.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters/intrinsic_r.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parameters/right_camera_intrinsics/intrinsic_r.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,8 +196,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.task4" />
-        <item itemvalue="Python.t3" />
         <item itemvalue="Python.task2" />
+        <item itemvalue="Python.t3" />
         <item itemvalue="Python.t1" />
         <item itemvalue="Python.plot" />
       </list>
@@ -283,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583299603168</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="corrected task 4">
+      <created>1583307955008</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1583307955008</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -294,33 +316,34 @@
     <MESSAGE value="Updated task 1,2 and 3" />
     <MESSAGE value="Updated task 1,2,3 and 4" />
     <MESSAGE value="Final Push" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final Push" />
+    <MESSAGE value="corrected task 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="corrected task 4" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="814" y="72" width="782" height="912" key="CommitChangelistDialog2" timestamp="1583307939382">
+    <state x="814" y="72" width="782" height="912" key="CommitChangelistDialog2" timestamp="1583307954910">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="814" y="72" width="782" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1583307939382" />
+    <state x="814" y="72" width="782" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1583307954910" />
     <state x="167" y="125" width="1653" height="855" key="DiffContextDialog" timestamp="1583196238811">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="167" y="125" width="1653" height="855" key="DiffContextDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583196238811" />
-    <state width="1830" height="278" key="GridCell.Tab.0.bottom" timestamp="1583307813159">
+    <state width="1830" height="278" key="GridCell.Tab.0.bottom" timestamp="1583380281628">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1583307813159" />
-    <state width="1830" height="278" key="GridCell.Tab.0.center" timestamp="1583307813159">
+    <state width="1830" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1583380281628" />
+    <state width="1830" height="278" key="GridCell.Tab.0.center" timestamp="1583380281628">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1583307813159" />
-    <state width="1830" height="278" key="GridCell.Tab.0.left" timestamp="1583307813158">
+    <state width="1830" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1583380281628" />
+    <state width="1830" height="278" key="GridCell.Tab.0.left" timestamp="1583380281627">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1583307813158" />
-    <state width="1830" height="278" key="GridCell.Tab.0.right" timestamp="1583307813159">
+    <state width="1830" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1583380281627" />
+    <state width="1830" height="278" key="GridCell.Tab.0.right" timestamp="1583380281628">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1830" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1583307813159" />
+    <state width="1830" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1583380281628" />
     <state x="698" y="270" width="580" height="564" key="MultipleFileMergeDialog" timestamp="1583292269375">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -333,17 +356,21 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1583305438523" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1583299605629">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1583307956977">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1583299605629" />
-    <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1583303301279">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1583307956977" />
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1583369265434">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583303301279" />
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1583369265434" />
     <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583294315902">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="761" y="472" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1583294315902" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1583378031743">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1583378031743" />
   </component>
 </project>

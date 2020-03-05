@@ -54,13 +54,13 @@ ret_right, mtx_right, dist_right, rvecs_r, tvecs_r = cv2.calibrateCamera(d3, ip_
 
 print(mtx_right)
 print(dist_right)
-# print(rvecs,tvecs)
+print(rvecs_l)
 
-np.savetxt('../../parameters/intrinsic_l.csv', mtx_left, delimiter=',')
-np.savetxt('../../parameters/intrinsic_r.csv', mtx_right, delimiter=',')
+np.savetxt('../../parameters/left_camera_intrinsics/intrinsic_l.csv', mtx_left, delimiter=',')
+np.savetxt('../../parameters/right_camera_intrinsics/intrinsic_r.csv', mtx_right, delimiter=',')
 
-np.savetxt('../../parameters/distortion_l.csv', dist_left, delimiter=',')
-np.savetxt('../../parameters/distortion_r.csv', dist_right, delimiter=',')
+np.savetxt('../../parameters/left_camera_intrinsics/distortion_l.csv', dist_left, delimiter=',')
+np.savetxt('../../parameters/right_camera_intrinsics/distortion_r.csv', dist_right, delimiter=',')
 
 
 h, w = left.shape[:2]

@@ -18,11 +18,11 @@ cv.destroyAllWindows()
 
 #left only
 
-mtx_l = np.loadtxt('../../parameters/intrinsic_l.csv', delimiter=',')
-dist_l = np.loadtxt('../../parameters/distortion_l.csv', delimiter=',')
-mtx_r = np.loadtxt('../../parameters/intrinsic_r.csv', delimiter=',')
-dist_r = np.loadtxt('../../parameters/distortion_r.csv', delimiter=',')
-Q = np.loadtxt('../../parameters/Q.csv', delimiter=',')
+mtx_l = np.loadtxt('../../parameters/left_camera_intrinsics/intrinsic_l.csv', delimiter=',')
+dist_l = np.loadtxt('../../parameters/left_camera_intrinsics/distortion_l.csv', delimiter=',')
+mtx_r = np.loadtxt('../../parameters/right_camera_intrinsics/intrinsic_r.csv', delimiter=',')
+dist_r = np.loadtxt('../../parameters/right_camera_intrinsics/distortion_r.csv', delimiter=',')
+Q = np.loadtxt('../../parameters/stereo_rectification/Q.csv', delimiter=',')
 
 h,  w = left.shape
 newcameramtx_l, roi_l=cv.getOptimalNewCameraMatrix(mtx_l,dist_l,(w,h),1, (w,h))
@@ -51,19 +51,38 @@ dst2 = cv.remap(right, mapx_r, mapy_r, cv.INTER_LINEAR)
 
 stereo = cv.StereoBM_create(numDisparities=16, blockSize=21)
 disparity = stereo.compute(dst1,dst2)
-depth = cv.reprojectImageTo3D(disparity,Q)
+depth = cv.reprojectImageTo3D(disparity, Q)
 
 
-print(depth[:][:][0])
+print(depth[0,0])
 print(disparity.shape)
 plt.imshow(disparity)
 
-cv.imshow('depth', depth)
+vect = np.zeros((480,640))
+for i in range(480):
+    for j in range(640):
+
+        vect[i,j] = np.linalg.norm(depth[i,j])
+
+
+vect[np.isinf(vect)]=255
+print(vect.max())
+print(vect)
+vect = ((255.0- vect)/(vect.max()))*255
+#vect = vect/(float(vect.max())/255.0)
+# for i in range(480):
+#     for j in range(640):
+#         if vect[i,j]=='inf':
+#             vect[i,j] = 500000
+#         vect[i,j] = ((255.0- vect[i,j])/(vect.max()))
+
+cv.imshow('depth', vect)
 #cv.imshow('disparity', disparity)
 cv.waitKey(0)
 cv.destroyAllWindows()
 plt.imshow(disparity,'gray')
 plt.show()
+
 
 
 # import matplotlib.pyplot as plt
@@ -72,3 +91,4 @@ plt.show()
 # ax=plt.axes(projection='3d')
 # ax.scatter(depth[:][:][0],depth[:][:][1],depth[:][:][2])
 # plt.show()
+
