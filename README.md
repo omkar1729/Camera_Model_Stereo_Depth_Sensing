@@ -78,16 +78,5 @@ Run the programs in order using
 
 python3 t1.task
 
-In the terminal change the directory to the correct folder (code) and use the above command. Repeat for
+In the terminal change the directory to the correct folder (code) and use the above command. Repeat for other tasks, the images are stored after running the code.
 
-other tasks, the images are stored after running the code.
-
-**Contributions:**
-
-Mitul Magu (Tech Lead) – Completed task 3 and helped in the remaining tasks. Wrote section for task 3
-
-in the reprort
-
-Omkar Muglikar (Reporter) - Completed task 1 and task 4, helped in other tasks and wrote the report.
-
-Sarthake Choudhary (Supporter) – Completed task 2 and helped in various other parts of the code.
