@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dabf5f82-c261-4143-a2e1-a7ad3f699bf1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/task_1/t1.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/task_1/t1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/task_1/calibrate result 2.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/task_1/calibrate result 2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/task_1/original image 2.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/task_1/original image 2.png" afterDir="false" />
-    </list>
+    <list default="true" id="dabf5f82-c261-4143-a2e1-a7ad3f699bf1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +50,7 @@
       <recent name="$PROJECT_DIR$/code/task_1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.t1">
+  <component name="RunManager" selected="Python.task2">
     <configuration name="plot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="project_2a" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -189,10 +184,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.task2" />
         <item itemvalue="Python.t1" />
         <item itemvalue="Python.t3" />
         <item itemvalue="Python.task4" />
-        <item itemvalue="Python.task2" />
         <item itemvalue="Python.plot" />
       </list>
     </recent_temporary>
@@ -208,7 +203,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582911398934</updated>
-      <workItem from="1614455981847" duration="616000" />
+      <workItem from="1614455981847" duration="972000" />
     </task>
     <task id="LOCAL-00001" summary="Updated task 1 and task 2">
       <created>1583051940472</created>
@@ -322,7 +317,21 @@
       <option name="project" value="LOCAL" />
       <updated>1614456289151</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Generated proper images">
+      <created>1614456602663</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1614456602663</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Generated proper images">
+      <created>1614456711615</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1614456711615</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,6 +350,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Generated proper images" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Perception_Project_2a$t1.coverage" NAME="t1 Coverage Results" MODIFIED="1614456576422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code/task_1" />
+    <SUITE FILE_PATH="coverage/Perception_Project_2a$t1.coverage" NAME="t1 Coverage Results" MODIFIED="1614456643863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code/task_1" />
   </component>
 </project>
