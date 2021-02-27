@@ -27,13 +27,13 @@ Below are the figures for original image on left and rectified image on right -
 
 For Left camera -
 
-| original image | Rectifiied Image |
+| original image | Rectified Image |
 | -------------  | ---------------- |
 | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_2/result_left%200.png" width="400" > | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_2/Left%20remap%200.png" width="400" > |
 
 For Right camera -
 
-| original image | Rectifiied Image |
+| original image | Rectified Image |
 | -------------  | ---------------- |
 | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_2/result_right%200.png" width="400" > | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_2/Right%20remap%200.png" width="400" > |
 
@@ -48,7 +48,7 @@ Below is plot for triangulation -
 
 The images are loaded in pairs and the image pair is selected using the value of i. The intrinsic and distortion values are loaded from the result of the previous task. The images are undistorted using &#39;initUndistortRectifyMap&#39; and &#39;remap&#39;. Then orb class objects are created for both the left and right images and ketpoints are extracted. The descriptors are then matched using BFMatcher and the image is displayed and saved after the matches are drawn using &#39;drawMatches&#39;. The essential matrix E is then calculated and only the good feature points are kept. The matches are drawn again using the good feature points and the 3d coordinates are plotted.
 
-**Results for scene 0**
+Results for scene 0 - 
 
 | All feature points  | Good feature points | Matching |
 | ------------- | ------------- | ----- |
@@ -64,7 +64,7 @@ The 3D points received from the scene after using triangulatePoints()
 
 
 
-**Task 4 Calculating Depth from given RGB image**
+**Task 4: Calculating Depth from given RGB image**
 
 In this task, we created a disparity map for the given image. I.e we calculated depth of every point on the image. We used stereoBM function for block matching and eventually getting the disparity map. We compute the depth using reprojectimageto 3d function which gives us the 3d cordinates for every pixel in image. We calculate the distance using norm of the position cordinates and clip the output between 0 to 255 range to produce the depth image. Below are the depth images for given image
 
