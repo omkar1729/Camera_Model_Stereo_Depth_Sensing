@@ -42,7 +42,7 @@ for i in range(11):
         cv2.imwrite('../../output/task_1/window left '+ str(i) + '.png', left)
     cv2.imshow('window_right', right)
     if i == 2:
-        cv2.imwrite('../../output/task_1/window left '+ str(i) + '.png', right)
+        cv2.imwrite('../../output/task_1/window right '+ str(i) + '.png', right)
     cv2.waitKey(100)
     cv2.destroyAllWindows()
 
@@ -80,7 +80,7 @@ newcameramtx_r, roi_r =cv2.getOptimalNewCameraMatrix(mtx_right,dist_right,(w,h),
 
 # print(roi_l)
 
-left = cv2.imread(str_left.format(1))
+left = cv2.imread(str_left.format(2))
 cv2.imwrite('../../output/task_1/original image '+ str(2) + '.png', left)
 mapx_l, mapy_l = cv2.initUndistortRectifyMap(mtx_left, dist_left, None, None, (w,h), 5)
 dst = cv2.remap(left, mapx_l, mapy_l, cv2.INTER_LINEAR)
