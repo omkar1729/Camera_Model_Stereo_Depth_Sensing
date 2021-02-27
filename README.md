@@ -50,6 +50,11 @@ The images are loaded in pairs and the image pair is selected using the value of
 
 **Results for scene 4**
 
+| One    | Two | Three | Four    | Five  | Six 
+| -
+| Span <td colspan=3>triple  <td colspan=2>double
+
+
 ![](RackMultipart20210227-4-1oq288m_html_a552429d09454451.png) ![](RackMultipart20210227-4-1oq288m_html_177196db69dc3d59.png)
 
 All feature points (left) versus only the good feature points (right)
