@@ -64,19 +64,13 @@ The 3D points received from the scene after using triangulatePoints()
 
 
 
-**Task 4**
+**Task 4 Calculating Depth from given RGB image**
 
 In this task, we created a disparity map for the given image. I.e we calculated depth of every point on the image. We used stereoBM function for block matching and eventually getting the disparity map. We compute the depth using reprojectimageto 3d function which gives us the 3d cordinates for every pixel in image. We calculate the distance using norm of the position cordinates and clip the output between 0 to 255 range to produce the depth image. Below are the depth images for given image
 
-S ![](RackMultipart20210227-4-1oq288m_html_925319ca0a5faee8.png) ![](RackMultipart20210227-4-1oq288m_html_cc253f6a1477314d.png) ![](RackMultipart20210227-4-1oq288m_html_1cb9bca011d20150.png) cene 8
-
-Scene 4 below -
-
-![](RackMultipart20210227-4-1oq288m_html_ae0206e2ea0f0a53.png)
-
-![](RackMultipart20210227-4-1oq288m_html_f66f498dcead956f.png)
-
-![](RackMultipart20210227-4-1oq288m_html_fe0f37daf65d7577.png)
+| original image | Depth Image |
+| -------------  | ---------------- |
+| <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/images/task_3_and_4/left_8.png" width="400" > | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_4/Disparity.png" width="400" > |
 
 **How to Run the code**
 
