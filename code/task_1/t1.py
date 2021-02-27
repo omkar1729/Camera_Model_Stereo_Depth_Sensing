@@ -20,7 +20,7 @@ d3_points = np.asarray(d3_points, np.float32)
 #print(d3_points)
 str_left = '../../images/task_1/left_{}.png'
 str_right = '../../images/task_1/right_{}.png'
-df = (str_left.format(1))
+df = (str_left.format(2))
 
 for i in range(11):
     left = cv2.imread(str_left.format(i))
@@ -80,7 +80,7 @@ newcameramtx_r, roi_r =cv2.getOptimalNewCameraMatrix(mtx_right,dist_right,(w,h),
 
 # print(roi_l)
 
-left = cv2.imread(str_left.format(2))
+left = cv2.imread(str_right.format(2))
 cv2.imwrite('../../output/task_1/original image '+ str(2) + '.png', left)
 mapx_l, mapy_l = cv2.initUndistortRectifyMap(mtx_left, dist_left, None, None, (w,h), 5)
 dst = cv2.remap(left, mapx_l, mapy_l, cv2.INTER_LINEAR)
