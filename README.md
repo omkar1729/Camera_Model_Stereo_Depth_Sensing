@@ -8,9 +8,9 @@ Task 1 is the basic task of camera calibration. In this task we find out the cam
 Results for left Image 2 -
 
 <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_1/calibrate%20result%202.png" width="500" >
+<img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_1/calibrate%20result%202.png" width="500" >
 
 
-![](RackMultipart20210227-4-1oq288m_html_b2d4293f21973fe5.png)
 
 Results for Right Image 2 -
 
