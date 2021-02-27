@@ -7,8 +7,12 @@ Task 1 is the basic task of camera calibration. In this task we find out the cam
 
 Results for left Image 2 -
 
-<img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_1/calibrate%20result%202.png" width="400" >
-<img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_1/calibrate%20result%202.png" width="400" >
+| First Header  | Second Header |
+| ------------- | ------------- |
+| <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_1/calibrate%20result%202.png" width="400" >  | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_1/calibrate%20result%202.png" width="400" >  |
+
+
+
 
 
 
