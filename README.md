@@ -3,7 +3,12 @@
 
 **Task 1 – Pinhole camera model and calibration**
 
+<div style="text-align: justify"> 
 Task 1 is the basic task of camera calibration. In this task we find out the camera intrinsic parameters from 3d – 2d point correspondences. We use the chess board as our reference for calibrating the camera. We calibrate left and right camera individually. We use cv2.findChessboardCorners to detect corners in the given image and draw those points on the image using drawChessboardCorners. We define the 3d points as demonstrated in task1 guidelines. Now we use these 3d and corresponding 2d points to calibrate camera using calibrateCamera function. The outputs of this function is the intrinsic matrix and distortion matrix. We save these in the parameters folder for future use. Below are the results obtained. Top 2 images are of points detected and original image respectively. Bottom image is the calibrated image. The intrinsic parameters are saved as csv files under parameters folder.
+
+</div>
+
+
 
 Results for left Image 2 -
 
