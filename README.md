@@ -50,9 +50,9 @@ The images are loaded in pairs and the image pair is selected using the value of
 
 **Results for scene 4**
 
-| All feature points  | Good feature poiints | Matching |
+| All feature points  | Good feature points | Matching |
 | ------------- | ------------- | ----- |
-| <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_3/Feature%20Right%200.png" width="400" >  | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_3/Feature%20Match%20with%20good%20points%202%20-%200.png" width="400" >  | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_3/Feature%20Matching%200.png" width="400" > |
+| <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_3/Feature%20Right%200.png" width="400" >  | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_3/Feature%20Match%20with%20good%20points%202%20-%200.png" width="400" >  | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_3/Feature%20Matching%200.png" width="800" > |
 
 
 ![](RackMultipart20210227-4-1oq288m_html_a552429d09454451.png) ![](RackMultipart20210227-4-1oq288m_html_177196db69dc3d59.png)
