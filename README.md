@@ -15,14 +15,6 @@ Results for left Image 2 -
 
 
 
-
-
-Results for Right Image 2 -
-
-![](RackMultipart20210227-4-1oq288m_html_1de33517fdc9dddf.png) ![](RackMultipart20210227-4-1oq288m_html_e68ea166647846f0.png)
-
-![](RackMultipart20210227-4-1oq288m_html_b2d4293f21973fe5.png)
-
 **Task 2 Stereo Calibration and Rectification**
 
 Task 2 first focuses on acquiring extrinsic paramters of the left and right camera. Images from both
