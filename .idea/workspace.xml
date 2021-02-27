@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dabf5f82-c261-4143-a2e1-a7ad3f699bf1" name="Default Changelist" comment="" />
+    <list default="true" id="dabf5f82-c261-4143-a2e1-a7ad3f699bf1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,8 +41,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -203,7 +208,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582911398934</updated>
-      <workItem from="1614455981847" duration="972000" />
+      <workItem from="1614455981847" duration="3551000" />
     </task>
     <task id="LOCAL-00001" summary="Updated task 1 and task 2">
       <created>1583051940472</created>
@@ -331,7 +336,21 @@
       <option name="project" value="LOCAL" />
       <updated>1614456711615</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Generated proper images">
+      <created>1614457013286</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1614457013286</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added the 3d plot">
+      <created>1614457077701</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1614457077701</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,9 +366,11 @@
     <MESSAGE value="Final Push" />
     <MESSAGE value="corrected task 4" />
     <MESSAGE value="Generated proper images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Generated proper images" />
+    <MESSAGE value="Added the 3d plot" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the 3d plot" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Perception_Project_2a$t1.coverage" NAME="t1 Coverage Results" MODIFIED="1614456643863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code/task_1" />
+    <SUITE FILE_PATH="coverage/Perception_Project_2a$task2.coverage" NAME="task2 Coverage Results" MODIFIED="1614457049250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code/task_2" />
   </component>
 </project>
