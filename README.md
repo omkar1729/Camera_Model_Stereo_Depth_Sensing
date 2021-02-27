@@ -48,38 +48,21 @@ Below is plot for triangulation -
 
 The images are loaded in pairs and the image pair is selected using the value of i. The intrinsic and distortion values are loaded from the result of the previous task. The images are undistorted using &#39;initUndistortRectifyMap&#39; and &#39;remap&#39;. Then orb class objects are created for both the left and right images and ketpoints are extracted. The descriptors are then matched using BFMatcher and the image is displayed and saved after the matches are drawn using &#39;drawMatches&#39;. The essential matrix E is then calculated and only the good feature points are kept. The matches are drawn again using the good feature points and the 3d coordinates are plotted.
 
-**Results for scene 4**
+**Results for scene 0**
 
 | All feature points  | Good feature points | Matching |
 | ------------- | ------------- | ----- |
 | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_3/Feature%20Right%200.png" width="400" >  | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_3/Feature%20Match%20with%20good%20points%202%20-%200.png" width="400" >  | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_3/Feature%20Matching%200.png" width="800" > |
 
 
-![](RackMultipart20210227-4-1oq288m_html_a552429d09454451.png) ![](RackMultipart20210227-4-1oq288m_html_177196db69dc3d59.png)
-
-All feature points (left) versus only the good feature points (right)
-
-![](RackMultipart20210227-4-1oq288m_html_5081f6e404935e90.png)
-
 Feature points are found and matched in the scene.
 
-![](RackMultipart20210227-4-1oq288m_html_ca96984e1a66a85e.png)
-
-3D coordinates of the points that have a good match.
-
-**Results for scene 0**
-
-![](RackMultipart20210227-4-1oq288m_html_ef08a58003e2d62d.png) ![](RackMultipart20210227-4-1oq288m_html_12a4a2827eac28d9.png)
-
-Good feature points (right) extracted from another scene
-
-![](RackMultipart20210227-4-1oq288m_html_6ae0f3f3183d70c3.png)
-
-Matching 15 points from the scene from the left and right image
-
-![](RackMultipart20210227-4-1oq288m_html_ce6e8f56cb49dc18.png)
-
 The 3D points received from the scene after using triangulatePoints()
+<p align="center">
+  <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_3/Plot%200.png" width="600" >
+</p>
+
+
 
 **Task 4**
 
