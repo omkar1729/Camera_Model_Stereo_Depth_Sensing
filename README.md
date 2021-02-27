@@ -27,9 +27,11 @@ Below are the figures for original image on left and rectified image on right -
 
 for right camera -
 
-![](RackMultipart20210227-4-1oq288m_html_a663f6fefcdbb658.png) ![](RackMultipart20210227-4-1oq288m_html_afd706c5aabe3e10.png)
+| original image | Rectifiied Image |
+| -------------  | ---------------- |
+| <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_2/result_left%200.png" width="400" > | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_2/Left%20remap%200.png" width="400" > |
 
-F ![](RackMultipart20210227-4-1oq288m_html_b2c69533fa5d6f48.png) or Left camera -
+For Left camera -
 
 ![](RackMultipart20210227-4-1oq288m_html_78b7121391f35464.png)
 
