@@ -25,19 +25,24 @@ Using these functions we obtain our new remapped images.
 
 Below are the figures for original image on left and rectified image on right -
 
-for right camera -
+For Left camera -
 
 | original image | Rectifiied Image |
 | -------------  | ---------------- |
 | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_2/result_left%200.png" width="400" > | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_2/Left%20remap%200.png" width="400" > |
 
-For Left camera -
+For Right camera -
 
-![](RackMultipart20210227-4-1oq288m_html_78b7121391f35464.png)
+| original image | Rectifiied Image |
+| -------------  | ---------------- |
+| <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_2/result_right%200.png" width="400" > | <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_2/Right%20remap%200.png" width="400" > |
 
 Below is plot for triangulation -
+<p align="center">
+  <img src="https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_2/Figure_3d%200.png" width="600" >
+</p>
 
-![](RackMultipart20210227-4-1oq288m_html_8761a5bfba9e4afb.png)
+
 
 **Task 3: Sparse depth triangulation report**
 
