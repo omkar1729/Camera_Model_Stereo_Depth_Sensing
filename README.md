@@ -15,55 +15,9 @@ Results for left Image 2 -
 
 
 
-
-
-Results for Right Image 2 -
-
-![](RackMultipart20210227-4-1oq288m_html_1de33517fdc9dddf.png) ![](RackMultipart20210227-4-1oq288m_html_e68ea166647846f0.png)
-
-![](RackMultipart20210227-4-1oq288m_html_b2d4293f21973fe5.png)
-
 **Task 2 Stereo Calibration and Rectification**
 
-Task 2 first focuses on acquiring extrinsic paramters of the left and right camera. Images from both
-
-camera of a chessboard is given. Both those images are loaded. Along with it, the intrinsic paramters are
-
-loaded from csv files, saved in &#39;parameters&#39; folder. First openCV&#39;s &#39;findchessboardcorners&#39; function is
-
-called to get the image coordinates of the corners in the images of left and right camera. These image
-
-points are stored and used along with the 3d world coordinates of the corners of the chessboard to
-
-calibrate both the left and right camera. To do so, we call the function &#39;stereocalibrate&#39; and obtain the
-
-rotation and transformation between the two cameras. On doing so, we then proceed to define the origin
-
-of first camera as (0,0,0). We set its transformation matrix to a 3x1 zero matrix and its rotation matrix to
-
-an identity matrix. We create the projection matrix of the first camera using the intrinsic matrix calculated
-
-in the first task and the the translation and rotation defined by us. We then create the projection matrix of
-
-the second camera using its intrinsic matrix and the rotation and translation obtained by the function
-
-&#39;stereocalibrate&#39;. Once we do this, we call the function,&#39;undistortpoints&#39; to undistort the imagepoints we
-
-saved for both cameras. Once we obtaint the undistorted image points, we use them in the function,
-
-&#39;traingulatepoints&#39; to triangulate the 3d position of the corners of the chessboard.
-
-On completing triangulation, we proceed to with the task of stereo rectification, i.e transformation of the
-
-source images onto a common plane such that the two images appear as they have been taken with only a
-
-horizontal displacement. We call the fucntion stereorectify followed by &#39;initUndistortRectifyMap&#39; to
-
-create two maps, to obtain the values of pixel coordinates of the new remapped image. We then call the
-
-fuction &#39;remap&#39; to remap the images from both cameras to the specified maps. It follows the formulas as
-
-specified below:
+Task 2 first focuses on acquiring extrinsic paramters of the left and right camera. Images from both camera of a chessboard is given. Both those images are loaded. Along with it, the intrinsic paramters are loaded from csv files, saved in &#39;parameters&#39; folder. First openCV&#39;s &#39;findchessboardcorners&#39; function is called to get the image coordinates of the corners in the images of left and right camera. These image points are stored and used along with the 3d world coordinates of the corners of the chessboard to calibrate both the left and right camera. To do so, we call the function &#39;stereocalibrate&#39; and obtain the rotation and transformation between the two cameras. On doing so, we then proceed to define the origin of first camera as (0,0,0). We set its transformation matrix to a 3x1 zero matrix and its rotation matrix to an identity matrix. We create the projection matrix of the first camera using the intrinsic matrix calculated in the first task and the the translation and rotation defined by us. We then create the projection matrix of the second camera using its intrinsic matrix and the rotation and translation obtained by the function &#39;stereocalibrate&#39;. Once we do this, we call the function,&#39;undistortpoints&#39; to undistort the imagepoints we saved for both cameras. Once we obtaint the undistorted image points, we use them in the function, &#39;traingulatepoints&#39; to triangulate the 3d position of the corners of the chessboard. On completing triangulation, we proceed to with the task of stereo rectification, i.e transformation of the source images onto a common plane such that the two images appear as they have been taken with only a horizontal displacement. We call the fucntion stereorectify followed by &#39;initUndistortRectifyMap&#39; to create two maps, to obtain the values of pixel coordinates of the new remapped image. We then call the fuction &#39;remap&#39; to remap the images from both cameras to the specified maps. It follows the formulas as specified below:
 
 dst(x,y) = src(map\_x(x,y),map\_y(x,y))
 
