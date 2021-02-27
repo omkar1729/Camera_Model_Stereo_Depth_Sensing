@@ -7,7 +7,7 @@ Task 1 is the basic task of camera calibration. In this task we find out the cam
 
 Results for left Image 2 -
 
-![](RackMultipart20210227-4-1oq288m_html_17d317ee1dd0df5c.png) ![](RackMultipart20210227-4-1oq288m_html_e68ea166647846f0.png)
+![](output/task_1/original image 2.png) ![](RackMultipart20210227-4-1oq288m_html_e68ea166647846f0.png)
 
 ![](RackMultipart20210227-4-1oq288m_html_b2d4293f21973fe5.png)
 
