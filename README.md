@@ -7,7 +7,7 @@ Task 1 is the basic task of camera calibration. In this task we find out the cam
 
 Results for left Image 2 -
 
-![](output/task_1/original image 2.png) ![](RackMultipart20210227-4-1oq288m_html_e68ea166647846f0.png)
+![](https://github.com/omkar1729/Perception_Project_2a/blob/master/output/task_1/calibrate%20result%202.png) ![](RackMultipart20210227-4-1oq288m_html_e68ea166647846f0.png)
 
 ![](RackMultipart20210227-4-1oq288m_html_b2d4293f21973fe5.png)
 
